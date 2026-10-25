@@ -1,0 +1,4 @@
+db_config.ini
+__pycache__/
+*.pyc
+reports_output/
