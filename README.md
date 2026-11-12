@@ -5,7 +5,10 @@
 **Micro Project – 07: Hospital Patient Record System**
 Industry focus: Healthcare  |  Integrated COs: CO2, CO3, CO4
 
-A desktop application that keeps patient records in a **hash table** (direct access by ID), a **binary search tree** (ordered and range queries) and uses **merge sort** for the daily admission report. SQLite is used for permanent storage only.
+A desktop application that keeps patient records in a **hash table** (direct access by ID), a **binary search tree** (ordered and range queries) and uses **merge sort** for the daily admission report. MySQL is used for permanent storage only (SQLite is used as an offline fallback).
+
+## Tech Stack
+Python, CustomTkinter (GUI), MySQL (storage), Hash Table with separate chaining, Binary Search Tree, Merge Sort, ReportLab (PDF reports).
 
 ## Team
 | Name | Register No. |
@@ -16,6 +19,11 @@ A desktop application that keeps patient records in a **hash table** (direct acc
 
 **Guided by:** Dr. J. A. M. Rexie, Assistant Professor
 Division of Computer Science and Engineering, Karunya University
+
+## DSA Used
+- **Hash Table:** O(1) lookup by patient ID, blocks duplicate IDs, separate chaining, rehash at load factor 0.75
+- **BST:** sorted patient list (in-order) and ID range query
+- **Merge Sort:** daily admission report sorted by date (stable)
 
 ## Features
 - Sidebar navigation, light/dark mode, live clock, toast notifications, status bar with the last operation and its comparison count.
@@ -32,12 +40,46 @@ Division of Computer Science and Engineering, Karunya University
 - **Startup splash** (about 2 seconds) and a frosted-glass interface with a RAPHA logo.
 
 ## Screenshots
-_Add screenshots here (Splash, Dashboard, Lookup, Range Query, Daily Report, Hash View, BST View, dark mode)._
+### Dashboard
+![Dashboard](Screenshots/screenshots/dashboard.png)
+
+### All Patients
+![All Patients](Screenshots/screenshots/patients.png)
+
+### Add Patient
+![Add Patient](Screenshots/screenshots/add_patient.png)
+
+### Lookup by ID - Hashing
+![Lookup by ID - Hashing](Screenshots/screenshots/lookup.png)
+
+### Hash Table View
+![Hash Table View](Screenshots/screenshots/hash_table.png)
+
+### BST View
+![BST View](Screenshots/screenshots/bst_view.png)
+
+### Range Query - BST
+![Range Query - BST](Screenshots/screenshots/range_query.png)
+
+### Daily Report - Merge Sort
+![Daily Report - Merge Sort](Screenshots/screenshots/daily_report.png)
+
+### Merge Sort Visualisation
+![Merge Sort Visualisation](Screenshots/screenshots/merge_sort.png)
+
+### Generate Report
+![Generate Report](Screenshots/screenshots/generate_report.png)
+
+### PDF Report
+![PDF Report](Screenshots/screenshots/pdf_report.png)
 
 ## How to run (Windows)
 ```
-cd hospital_records
+cd Rapha
 pip install -r requirements.txt
+```
+Create the database first: open `schema.sql` in MySQL Workbench and run it, then copy `db_config.example.ini` to `db_config.ini` and enter your MySQL password.
+```
 python main.py
 ```
 Run the tests: `python -m unittest discover -s tests -v`

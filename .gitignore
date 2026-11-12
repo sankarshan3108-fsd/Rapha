@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 reports_output/
 patients.db
+Screenshots/screenshots/mysql_workbench.png
